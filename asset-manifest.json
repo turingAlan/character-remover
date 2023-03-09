@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/character-remover/static/css/main.70a8c29d.css",
-    "main.js": "/character-remover/static/js/main.665a200d.js",
+    "main.css": "/character-remover/static/css/main.0ceb7d4c.css",
+    "main.js": "/character-remover/static/js/main.c569d8f9.js",
     "index.html": "/character-remover/index.html",
-    "main.70a8c29d.css.map": "/character-remover/static/css/main.70a8c29d.css.map",
-    "main.665a200d.js.map": "/character-remover/static/js/main.665a200d.js.map"
+    "main.0ceb7d4c.css.map": "/character-remover/static/css/main.0ceb7d4c.css.map",
+    "main.c569d8f9.js.map": "/character-remover/static/js/main.c569d8f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.70a8c29d.css",
-    "static/js/main.665a200d.js"
+    "static/css/main.0ceb7d4c.css",
+    "static/js/main.c569d8f9.js"
   ]
 }
