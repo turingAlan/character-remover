@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/removeDuplicates.css";
+import Modal from "./Modal";
 
 import { useLocation } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
 function RemoveDuplicates() {
   const [string, setString] = useState("");
@@ -9,6 +11,9 @@ function RemoveDuplicates() {
   const [charArray, setCharArray] = useState<string[]>([]);
   const [charObject, setCharObject] = useState({ a: { time: 0, color: "" } });
   const [isDuplicate, setIsDuplicate] = useState(false);
+  const [totalCharacter, setTotalCharacter] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [modal, setModal] = useState(false);
 
   const randomColor = require("randomcolor");
   const location = useLocation();
@@ -22,8 +27,10 @@ function RemoveDuplicates() {
     }
     if (duplicatePresent) {
       setIsDuplicate(true);
+      setModal(false);
     } else {
       setIsDuplicate(false);
+      setModal(true);
     }
   };
 
@@ -45,6 +52,7 @@ function RemoveDuplicates() {
       }
       if (character !== " ") {
         let timeColorObject = { time: charCount, color: color };
+        setTotalCharacter((prevState) => prevState + 1);
         setCharObject((prevState) => ({
           ...prevState,
           [character]: timeColorObject,
@@ -60,7 +68,6 @@ function RemoveDuplicates() {
 
   const removeDuplicate = (character: string, givenIndex: number) => {
     if (charObject[character as keyof typeof charObject]["time"] === 1) {
-      console.log("No duplictes found");
     } else {
       const tempArray = charArray.filter(
         (value, index) => value !== character || givenIndex === index
@@ -81,25 +88,34 @@ function RemoveDuplicates() {
     if (!charArray.length) {
       storeCharacter();
     }
+    window.scroll(0, 158);
   }, [string]);
 
   useEffect(() => {
     checkForDuplicates();
+    setCardWidth(100 * (1 / Math.ceil(totalCharacter / 3.0)));
   }, [charObject]);
 
   const Card = (props: any) => {
+    console.log(cardWidth);
     return (
-      <div className="ag-courses_item">
-        <a className="ag-courses-item_link">
+      <div
+        className="card-item"
+        style={{
+          flexBasis: `calc(${props.cardWidth}% - 30px)`,
+          color: "white",
+        }}
+      >
+        <a className="card-item-link">
           <div
-            className="ag-courses-item_bg"
+            className="card-item-bg"
             style={{ backgroundColor: `${props.color}` }}
           ></div>
-          <div className="ag-courses-item_title">{props.item}</div>
+          <div className="card-item-title">{props.item}</div>
 
           <div
             onClick={() => removeDuplicate(props.item, props.index)}
-            className="ag-courses-item_date-box"
+            className="card-itemDeltebox"
           >
             Delete Duplicates
           </div>
@@ -107,10 +123,24 @@ function RemoveDuplicates() {
       </div>
     );
   };
-
   return (
-    <div>
+    <div style={{}}>
       <div className="both-string-container">
+        <div className="string-container">
+          <a href="/" style={{ display: "flex", alignItems: "center" }}>
+            <FiArrowLeft color="rgb(0, 75, 145)" size={50} />
+
+            <h1
+              style={{
+                fontWeight: "600",
+                fontSize: "35px",
+                marginLeft: "10px",
+              }}
+            >
+              Back
+            </h1>
+          </a>
+        </div>
         <div className="string-container">
           <h1
             style={{ fontWeight: "400", fontSize: "30px", alignSelf: "center" }}
@@ -155,11 +185,18 @@ function RemoveDuplicates() {
               item={value}
               index={index}
               color={charObject[value as keyof typeof charObject].color}
+              cardWidth={cardWidth}
             />
           ) : null;
         })}
       </div>
-      <h2>{!isDuplicate ? "No duplicate character was found" : null}</h2>
+      {modal ? (
+        <Modal setModal={setModal}>
+          <h2 style={{ fontSize: "23px", color: "brown" }}>
+            🎊🎊 Congratulations all duplicates removed 🎊🎊
+          </h2>
+        </Modal>
+      ) : null}
     </div>
   );
 }

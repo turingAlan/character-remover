@@ -4,10 +4,12 @@ import "../styles/input.css";
 
 import { useNavigate } from "react-router-dom";
 import Validate from "../Utility/Validate";
+import Modal from "./Modal";
 
 function InputScreen() {
   const [inputText, setInputText] = useState("");
   const [errorText, setErrorText] = useState("");
+  const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,6 +19,7 @@ function InputScreen() {
       navigate("/removeDuplicates", { state: { string: inputText } });
     } else {
       setErrorText(error.string);
+      setModal(true);
     }
   };
   return (
@@ -38,8 +41,12 @@ function InputScreen() {
           />
           <input type="submit" className="button" onClick={() => OnClick()} />
         </div>
-        <h2 style={{ color: "red" }}>{errorText ? errorText : null}</h2>
       </form>
+      {modal ? (
+        <Modal setModal={setModal}>
+          <h2 style={{ color: "brown", fontSize: "30px" }}>{errorText}</h2>
+        </Modal>
+      ) : null}
     </div>
   );
 }

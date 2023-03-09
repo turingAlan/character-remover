@@ -8,6 +8,7 @@
   display: flex;
   background-color: #121212;
   border-radius: 20px;
+  align-items: center;
   padding: 0 20px;
   color: rgb(228, 223, 223);
 }
@@ -17,15 +18,13 @@
   flex-wrap: wrap;
 }
 
-.ag-courses_item {
-  -ms-flex-preferred-size: calc(33.33333% - 30px);
-  flex-basis: calc(25% - 30px);
+.card-item {
+  /* flex-basis: calc(25% - 30px); */
   margin: 0 15px 20px;
   overflow: hidden;
-
   border-radius: 28px;
 }
-.ag-courses-item_link {
+.card-item-link {
   display: block;
   padding: 30px 20px;
   background-color: #121212;
@@ -34,17 +33,17 @@
 
   position: relative;
 }
-.ag-courses-item_link:hover,
-.ag-courses-item_link:hover .ag-courses-item_date {
+.card-item-link:hover,
+.card-item-link:hover .ag-courses-item_date {
   text-decoration: none;
   color: #fff;
 }
-.ag-courses-item_link:hover .ag-courses-item_bg {
+.card-item-link:hover .card-item-bg {
   -webkit-transform: scale(10);
   -ms-transform: scale(10);
   transform: scale(10);
 }
-.ag-courses-item_title {
+.card-item-title {
   min-height: 87px;
   margin: 0 0 25px;
   font-family: "Nabla", cursive;
@@ -58,7 +57,7 @@
   z-index: 2;
   position: relative;
 }
-.ag-courses-item_date-box {
+.card-itemDeltebox {
   font-size: 18px;
   color: #fff;
 
@@ -72,11 +71,11 @@
   transition: color 0.5s ease;
 }
 
-.ag-courses-item_date-box:hover {
+.card-itemDeltebox:hover {
   color: red;
   font-weight: bolder;
 }
-.ag-courses-item_bg {
+.card-item-bg {
   height: 128px;
   width: 128px;
   z-index: 1;
@@ -91,11 +90,11 @@
 }
 
 @media only screen and (max-width: 979px) {
-  .ag-courses_item {
+  .card-item {
     -ms-flex-preferred-size: calc(50% - 30px);
     flex-basis: calc(50% - 30px);
   }
-  .ag-courses-item_title {
+  .card-item-title {
     font-size: 24px;
   }
 }
@@ -106,20 +105,20 @@
   }
 }
 @media only screen and (max-width: 639px) {
-  .ag-courses_item {
+  .card-item {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
-  .ag-courses-item_title {
+  .card-item-title {
     min-height: 72px;
     line-height: 1;
 
     font-size: 24px;
   }
-  .ag-courses-item_link {
+  .card-item-link {
     padding: 22px 40px;
   }
-  .ag-courses-item_date-box {
+  .card-itemDeltebox {
     font-size: 16px;
   }
 }

@@ -1,46 +1,24 @@
-# Getting Started with Create React App
+# Getting Started with Remove dulicate Webapp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is React app made with create react app using typescript template
 
-## Available Scripts
+To run this app -:
 
-In the project directory, you can run:
+1. npm install
+2. cd src
+3. npm run start
+4. Your app will start runnig at port 3000
 
-### `npm start`
+I have used the following packages -:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. react-router-dom
+2. react-icons
+3. validate.js
+4. random color
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This app home screen is the input screen where you have to write a string and then click submit it will redirect you to the second screen but if the entered string is empty or has only white spaces then it will refuse to go to second screen.
 
-### `npm test`
+On the second screen we have each and every letter of the string displayed in form of card except the white spaces. Here if the cards having same letters then this means they also have the same background color to get this effect I have used the package called randomcolor. On each card there is a delete duplicates button at bottom right corner on clicking that button the program will find all the duplicates of that same character and delete it from the screen except the one we clicked on. After deleting the duplicates a newString appears which show the new string without the duplicates. After all the duplicates has been removed a popup will appear congratulating you on removing all the duplicates from the string.
+There is button also below navbar saying "back" on clicking that button you go back to the home screen with input feild being completely clean.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I have also taken card design from https://codepen.io/wikyware-net/pen/dyKPRxQ and button desing from https://getcssscan.com/css-buttons-examples so huge thanks to them

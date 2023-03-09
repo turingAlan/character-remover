@@ -7,18 +7,28 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(240, 255, 255, 0.147);
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .appname-container {
   justify-self: end;
   position: absolute;
-  left: 10px;
+  left: 17px;
 }
 .appname {
-  color: rgb(20, 13, 50);
+  color: rgb(10, 180, 89);
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.17rem;
 }
 
 .logo-container {
@@ -26,8 +36,23 @@
 }
 
 .logo {
-  height: 7rem;
+  height: 8rem;
   width: 8rem;
+}
+
+.contactme-section {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  background-color: rgba(240, 255, 255, 0.481);
+  border-radius: 20px;
+}
+
+.contactme-container {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
 }
 
 .footer {
