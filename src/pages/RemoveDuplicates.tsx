@@ -4,6 +4,7 @@ import Modal from "./Modal";
 
 import { useLocation } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
+import Layout from "./Layout";
 
 function RemoveDuplicates() {
   const [string, setString] = useState("");
@@ -124,80 +125,90 @@ function RemoveDuplicates() {
     );
   };
   return (
-    <div style={{}}>
-      <div className="both-string-container">
-        <div className="string-container">
-          <a href="/" style={{ display: "flex", alignItems: "center" }}>
-            <FiArrowLeft color="rgb(0, 75, 145)" size={50} />
+    <Layout>
+      <div style={{}}>
+        <div className="both-string-container">
+          <div className="string-container">
+            <a href="/" style={{ display: "flex", alignItems: "center" }}>
+              <FiArrowLeft color="rgb(0, 75, 145)" size={50} />
 
-            <h1
-              style={{
-                fontWeight: "600",
-                fontSize: "35px",
-                marginLeft: "10px",
-              }}
-            >
-              Back
-            </h1>
-          </a>
-        </div>
-        <div className="string-container">
-          <h1
-            style={{ fontWeight: "400", fontSize: "30px", alignSelf: "center" }}
-          >
-            Original String
-          </h1>
-          <h1
-            style={{ fontWeight: "600", fontSize: "35px", marginLeft: "10px" }}
-          >
-            {string}
-          </h1>
-        </div>
-        {newString ? (
+              <h1
+                style={{
+                  fontWeight: "600",
+                  fontSize: "35px",
+                  marginLeft: "10px",
+                }}
+              >
+                Back
+              </h1>
+            </a>
+          </div>
           <div className="string-container">
             <h1
               style={{
                 fontWeight: "400",
                 fontSize: "30px",
-                justifySelf: "center",
                 alignSelf: "center",
               }}
             >
-              New String
+              Original String
             </h1>
             <h1
               style={{
                 fontWeight: "600",
                 fontSize: "35px",
-                display: "block",
                 marginLeft: "10px",
               }}
             >
-              {newString}
+              {string}
             </h1>
           </div>
+          {newString ? (
+            <div className="string-container">
+              <h1
+                style={{
+                  fontWeight: "400",
+                  fontSize: "30px",
+                  justifySelf: "center",
+                  alignSelf: "center",
+                }}
+              >
+                New String
+              </h1>
+              <h1
+                style={{
+                  fontWeight: "600",
+                  fontSize: "35px",
+                  display: "block",
+                  marginLeft: "10px",
+                }}
+              >
+                {newString}
+              </h1>
+            </div>
+          ) : null}
+        </div>
+        <div className="card-container">
+          {charArray.map((value: string, index: number) => {
+            return value !== " " ? (
+              <Card
+                item={value}
+                index={index}
+                color={charObject[value as keyof typeof charObject].color}
+                cardWidth={cardWidth}
+              />
+            ) : null;
+          })}
+        </div>
+        {modal ? (
+          <Modal setModal={setModal}>
+            <h2 style={{ fontSize: "23px", color: "brown" }}>
+              🎊🎊 Congratulations all duplicates removed 🎊🎊
+            </h2>
+          </Modal>
         ) : null}
       </div>
-      <div className="card-container">
-        {charArray.map((value: string, index: number) => {
-          return value !== " " ? (
-            <Card
-              item={value}
-              index={index}
-              color={charObject[value as keyof typeof charObject].color}
-              cardWidth={cardWidth}
-            />
-          ) : null;
-        })}
-      </div>
-      {modal ? (
-        <Modal setModal={setModal}>
-          <h2 style={{ fontSize: "23px", color: "brown" }}>
-            🎊🎊 Congratulations all duplicates removed 🎊🎊
-          </h2>
-        </Modal>
-      ) : null}
-    </div>
+    </Layout>
   );
 }
 

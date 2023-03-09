@@ -3,7 +3,6 @@ import "../styles/layout.css";
 
 import logo from "../logoHouseWare.png";
 
-import { Outlet } from "react-router-dom";
 import {
   FiGithub,
   FiLinkedin,
@@ -12,7 +11,7 @@ import {
   FiHome,
 } from "react-icons/fi";
 
-function Layout() {
+function Layout({ children }: any) {
   return (
     <div className="layout-container">
       <nav className="nav-bar">
@@ -23,7 +22,7 @@ function Layout() {
           </a>
         </div>
       </nav>
-      <Outlet />
+      {children}
       <section className="contactme-section">
         <h2 style={{ textAlign: "center", fontSize: "35px" }}>Contact me</h2>
         <ul className="contactme-container">
